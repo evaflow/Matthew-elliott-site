@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Mail, ExternalLink, Briefcase, BarChart3, Cpu, PenTool, ShieldCheck, Zap, Target } from "lucide-react";
+import { ArrowRight, Download, Mail, ExternalLink, BarChart3, Cpu, PenTool, ShieldCheck, Zap, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -54,15 +54,7 @@ const projects = [
     link: "https://closedwon-ruby.vercel.app",
     linkLabel: "Try ClosedWon →",
   },
-  {
-    icon: <Briefcase className="h-5 w-5" />,
-    title: "SkyStarter Creative",
-    subtitle: "Independent Digital Venture & AI Tool Suite",
-    description:
-      "The professional umbrella behind all four AI tools — spanning creative operations, audience development, digital strategy, emerging technology exploration and independent software development.",
-    link: "https://skystartercreative.com/pages/ai-tools-by-skystarter-creative",
-    linkLabel: "View all tools →",
-  },
+
 ];
 
 const timeline = [
