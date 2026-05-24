@@ -89,7 +89,7 @@ export default function MatthewElliottProfessionalSite() {
         <div className="relative mx-auto flex max-w-6xl flex-col px-6 py-24 md:py-32">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.7 }} className="max-w-3xl">
             <p className="mb-5 inline-flex rounded-full border border-white/15 px-4 py-2 text-sm text-neutral-300">
-              Fayetteville, NC • Open to Raleigh–Durham Relocation
+              Actuarial Science • AI Builder • Independent Operator
             </p>
             <h1 className="text-5xl font-semibold tracking-tight md:text-7xl">
               Matthew Arthur Elliott
