@@ -167,7 +167,7 @@ export default function MatthewElliottProfessionalSite() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Built by a builder, for builders.</h2>
           <p className="mt-4 text-lg leading-7 text-neutral-400">Four live AI-powered applications — independently designed, developed and deployed.</p>
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-3">
           {projects.map((project) => (
             <motion.div key={project.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.5 }}>
               <Card className="h-full rounded-3xl border-white/10 bg-neutral-900 text-neutral-100 shadow-2xl">
