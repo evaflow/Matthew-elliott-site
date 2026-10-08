@@ -15,6 +15,9 @@ import {
   Cpu,
   Zap,
   Target,
+  GitBranch,
+  PlayCircle,
+  FlaskConical,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -121,6 +124,8 @@ const timeline = [
 ];
 
 export default function MatthewElliottAIEvaluationSite() {
+  const [revealed, setRevealed] = React.useState(false);
+
   return (
     <main className="min-h-screen bg-neutral-950 text-neutral-100">
       <section className="relative overflow-hidden border-b border-white/10">
@@ -156,6 +161,11 @@ export default function MatthewElliottAIEvaluationSite() {
                 <Mail className="h-4 w-4 text-neutral-400" />
                 matthewaelliott@hotmail.com
               </div>
+              <a href="https://github.com/evaflow" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="w-full rounded-2xl border-white/20 bg-white/5 px-5 py-6 text-white hover:bg-white/10">
+                  <GitBranch className="mr-2 h-4 w-4" /> GitHub
+                </Button>
+              </a>
             </div>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-neutral-400">
               <span>Remote — US authorized</span>
@@ -232,6 +242,95 @@ export default function MatthewElliottAIEvaluationSite() {
         </div>
       </section>
 
+
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.5 }}>
+          <Card className="rounded-3xl border-white/10 bg-neutral-900 text-neutral-100 shadow-2xl">
+            <CardContent className="p-7 md:p-9">
+              <p className="text-sm uppercase tracking-[0.25em] text-neutral-500">Worked Example</p>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">A paired comparison, start to finish.</h3>
+              <p className="mt-3 max-w-2xl leading-7 text-neutral-400">
+                Same prompt, two candidate responses. Pick the stronger one.
+              </p>
+
+              <div className="mt-7 rounded-2xl border border-white/10 bg-neutral-950 p-5">
+                <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">Prompt</p>
+                <p className="mt-3 leading-7 text-neutral-200">
+                  A disease affects 1% of a population. A test correctly flags 99% of people who have it, and falsely flags 5% of people who do not. Someone tests positive. What is the probability they have the disease?
+                </p>
+              </div>
+
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                <button
+                  type="button"
+                  onClick={() => setRevealed(true)}
+                  disabled={revealed}
+                  className={`rounded-2xl border p-5 text-left leading-7 transition-colors ${
+                    revealed
+                      ? "border-emerald-400/60 bg-emerald-400/5 text-neutral-200"
+                      : "border-white/10 bg-neutral-950 text-neutral-300 hover:border-white/30 hover:bg-neutral-900 cursor-pointer"
+                  }`}
+                >
+                  <span className={`block text-xs uppercase tracking-[0.2em] ${revealed ? "text-emerald-400" : "text-neutral-500"}`}>
+                    Response A{revealed ? " — stronger" : ""}
+                  </span>
+                  <span className="mt-3 block">
+                    Weighting each likelihood by its prevalence: 0.99 x 0.01 = 0.0099 true positives, against 0.05 x 0.99 = 0.0495 false positives. So 0.0099 / 0.0594, approximately <strong className="font-semibold text-neutral-100">16.7%</strong>.
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setRevealed(true)}
+                  disabled={revealed}
+                  className={`rounded-2xl border p-5 text-left leading-7 transition-colors ${
+                    revealed
+                      ? "border-amber-400/60 bg-amber-400/5 text-neutral-400"
+                      : "border-white/10 bg-neutral-950 text-neutral-300 hover:border-white/30 hover:bg-neutral-900 cursor-pointer"
+                  }`}
+                >
+                  <span className={`block text-xs uppercase tracking-[0.2em] ${revealed ? "text-amber-400" : "text-neutral-500"}`}>
+                    Response B{revealed ? " — fails" : ""}
+                  </span>
+                  <span className="mt-3 block">
+                    Applying the test characteristics directly: 0.99 / (0.99 + 0.05), approximately <strong className="font-semibold text-neutral-100">95.2%</strong>. The test is highly accurate, so a positive result is strong evidence of disease.
+                  </span>
+                </button>
+              </div>
+
+              {!revealed && (
+                <p className="mt-5 text-sm text-neutral-500">Select a response to see the rationale.</p>
+              )}
+
+              {revealed && (
+                <div className="mt-6 border-t border-white/10 pt-6">
+                  <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">Rationale</p>
+                  <div className="mt-3 space-y-4 leading-7 text-neutral-300">
+                    <p>
+                      <strong className="font-semibold text-neutral-100">A is correct. B fails at the weighting step.</strong>{" "}
+                      B divides one likelihood by the sum of both, which has the shape of Bayes theorem but skips the priors. It never multiplies by the 1% prevalence or the 99% healthy share. The arithmetic is clean; the structure is wrong.
+                    </p>
+                    <p>
+                      That distinction is the job. B is not a careless answer, and a rater skimming for plausibility would pass it. Naming the failure precisely — <em className="text-neutral-200">likelihoods not weighted by the prior</em> — is what makes the label useful to a modeling team, because it identifies a reusable failure mode rather than a one-off mistake.
+                    </p>
+                    <p className="text-neutral-400">
+                      Base rate neglect is among the most common reasoning errors in model output, for the same reason it is common in people: the training text is full of it.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setRevealed(false)}
+                    className="mt-6 text-sm text-neutral-500 underline underline-offset-4 hover:text-neutral-300 transition-colors"
+                  >
+                    Reset
+                  </button>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </motion.div>
+      </section>
+
       <section className="border-y border-white/10 bg-white/[0.03]">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="mb-10 max-w-2xl">
@@ -267,6 +366,39 @@ export default function MatthewElliottAIEvaluationSite() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.5 }} className="mt-5">
+            <Card className="rounded-3xl border-white/10 bg-neutral-950 text-neutral-100 shadow-2xl">
+              <CardContent className="flex flex-col gap-6 p-7 md:flex-row md:items-center md:justify-between">
+                <div className="max-w-2xl">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-neutral-200">
+                      <FlaskConical className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold">SkyStarter Lead Engine</h3>
+                      <p className="mt-1 text-sm text-neutral-500">Early-stage AI product — in development</p>
+                    </div>
+                  </div>
+                  <p className="mt-4 leading-7 text-neutral-300">
+                    An AI lead-generation tool currently in build. The walkthrough is a recorded run through the working demo, explaining the design decisions as they come up.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3 md:shrink-0">
+                  <a href="https://skystarter-lead-demo.vercel.app" target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="w-full rounded-2xl border-white/20 bg-white/5 px-5 py-5 text-white hover:bg-white/10">
+                      Open demo <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
+                  <a href="https://www.loom.com/share/c60678b002ec4f0f9d2bdff5b7e03b83" target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="w-full rounded-2xl border-white/20 bg-white/5 px-5 py-5 text-white hover:bg-white/10">
+                      <PlayCircle className="mr-2 h-4 w-4" /> Watch walkthrough
+                    </Button>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
