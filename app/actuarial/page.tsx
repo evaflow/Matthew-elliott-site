@@ -68,14 +68,14 @@ const timeline = [
   {
     role: "Founder, Operator & Developer",
     org: "SkyStarter Creative",
-    time: "2012–Present",
+    time: "May 2019–Present",
     detail:
-      "Built an independent digital venture spanning creative operations, audience development and emerging technology. Independently designed, developed and deployed four live AI-powered web applications using Claude Code, Cursor and modern development tools — full-cycle execution from concept through production.",
+      "Built an independent digital venture spanning creative operations, audience development and emerging technology. Independently designed, developed and deployed three live AI-powered web applications using Claude Code, Cursor and modern development tools — full-cycle execution from concept through production.",
   },
   {
     role: "AI Data Evaluator & Research Analyst",
-    org: "DataAnnotation / Appen",
-    time: "2025–Present",
+    org: "TELUS Digital AI / Appen",
+    time: "Jan 2026–Present",
     detail:
       "Evaluated AI-generated content for logical consistency, factual accuracy and compliance with structured analytical guidelines. Conducted multi-source research, verified data integrity and completed business categorization projects maintaining high accuracy standards.",
   },
@@ -132,7 +132,7 @@ export default function MatthewElliottProfessionalSite() {
             I began my professional path with an Honours Bachelor of Science in Actuarial Science from the University of Western Ontario and early Health & Benefits experience within the Mercer / Marsh McLennan ecosystem — reviewing benefit plan documents, identifying policy discrepancies and supporting client-facing reporting.
           </p>
           <p>
-            Since then, I have independently designed and deployed four live AI-powered applications, built a 45,000+ combined audience across digital platforms, and developed deep experience in AI data evaluation and analytical review work.
+            Since then, I have independently designed and deployed three live AI-powered applications, built a 45,000+ combined audience across digital platforms, and developed deep experience in AI data evaluation and analytical review work.
           </p>
           <p>
             My goal now is to bring that full combination — quantitative discipline, client-focused communication, technical initiative and self-directed execution — back into a structured analytical consulting environment.
@@ -165,7 +165,7 @@ export default function MatthewElliottProfessionalSite() {
         <div className="mb-10 max-w-2xl">
           <p className="text-sm uppercase tracking-[0.25em] text-neutral-500">AI Tools & Projects</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Built by a builder, for builders.</h2>
-          <p className="mt-4 text-lg leading-7 text-neutral-400">Four live AI-powered applications — independently designed, developed and deployed.</p>
+          <p className="mt-4 text-lg leading-7 text-neutral-400">Three live AI-powered applications — independently designed, developed and deployed.</p>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {projects.map((project) => (
@@ -223,7 +223,7 @@ export default function MatthewElliottProfessionalSite() {
               <p className="text-sm uppercase tracking-[0.25em] text-neutral-500">Contact</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight">Available for analytical, benefits, and consulting-focused opportunities.</h2>
               <p className="mt-4 leading-7 text-neutral-300">
-                Open to relocation within the Raleigh–Durham area for the right professional opportunity.
+                Based in Cary, North Carolina. Available for remote and hybrid opportunities.
               </p>
             </div>
             <div className="flex flex-col gap-3">

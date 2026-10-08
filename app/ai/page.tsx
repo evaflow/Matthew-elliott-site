@@ -99,17 +99,17 @@ const projects = [
 const timeline = [
   {
     role: "AI Data Evaluator & Research Analyst",
-    org: "TELUS Digital AI / Appen / DataAnnotation",
-    time: "2025–Present",
+    org: "TELUS Digital AI / Appen",
+    time: "Jan 2026–Present",
     detail:
       "Evaluate AI-generated responses against versioned guidelines for logical consistency, factual accuracy, relevance and instruction-following. Current work includes a human-editing trajectory collection program — editing and judging reference documents against reference, description and inference instructions, and rating instruction clarity itself. Identify hallucinations, unsupported conclusions and reasoning gaps, then document them in structured, evidence-based feedback. Conduct multi-source research to verify claims and separate accurate information from plausible-sounding error.",
   },
   {
     role: "Founder, Operator & AI Tool Developer",
     org: "SkyStarter Creative",
-    time: "2016–Present",
+    time: "May 2019–Present",
     detail:
-      "Independently designed, tested and deployed four live AI-powered web applications using Claude Code, Cursor and ChatGPT. Refined prompts and workflows through iterative output evaluation — comparing generations, scoring quality and documenting recurring failure modes. Day-to-day exposure to how models fail sharpens the review work.",
+      "Independently designed, tested and deployed three live AI-powered web applications using Claude Code, Cursor and ChatGPT. Refined prompts and workflows through iterative output evaluation — comparing generations, scoring quality and documenting recurring failure modes. Day-to-day exposure to how models fail sharpens the review work.",
   },
   {
     role: "Health & Benefits Analyst",
@@ -162,7 +162,7 @@ export default function MatthewElliottAIEvaluationSite() {
               <span>•</span>
               <span>Available 20+ hrs / week, async</span>
               <span>•</span>
-              <span>Fayetteville, NC</span>
+              <span>Cary, NC</span>
             </div>
           </motion.div>
         </div>
@@ -175,13 +175,13 @@ export default function MatthewElliottAIEvaluationSite() {
         </motion.div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} transition={{ duration: 0.6, delay: 0.1 }} className="space-y-5 text-lg leading-8 text-neutral-300">
           <p>
-            I evaluate AI-generated content for a living. Across TELUS Digital AI, Appen and DataAnnotation I apply multi-page guidelines to long batches of model output — comparing paired responses, flagging hallucinations and instruction-following failures, and writing rationale that points to the specific rubric clause rather than to taste.
+            I evaluate AI-generated content for a living. Across TELUS Digital AI and Appen I apply multi-page guidelines to long batches of model output — comparing paired responses, flagging hallucinations and instruction-following failures, and writing rationale that points to the specific rubric clause rather than to taste.
           </p>
           <p>
             The habit comes from an Honours BSc in Actuarial Science and SOA Exams P and FM: check the assumption, verify the work, and be able to defend the conclusion step by step. Document review is familiar ground — my first analyst role at Mercer was cross-referencing benefit policy documents line by line to surface discrepancies between editions.
           </p>
           <p>
-            I also build with these models. Four live AI applications, shipped independently, mean I have seen how outputs fail in production — which makes the failure modes easier to name, categorize and escalate as regression cases.
+            I also build with these models. Three live AI applications, shipped independently, mean I have seen how outputs fail in production — which makes the failure modes easier to name, categorize and escalate as regression cases.
           </p>
         </motion.div>
       </section>

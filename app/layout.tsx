@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Matthew Elliott | Analytical Professional",
+  title: "Matthew Elliott | AI Evaluation & Applied AI Development",
   description:
-    "Matthew Elliott is an analytical professional with an actuarial science background, Mercer Health & Benefits experience, AI/data evaluation work, and digital strategy experience.",
+    "Matthew Elliott is an AI data evaluator and human rater on production LLM evaluation programs, and an independent builder of live AI applications. Honours BSc in Actuarial Science; SOA Exams P and FM passed. Based in Cary, NC; available remote.",
 };
 
 export default function RootLayout({
